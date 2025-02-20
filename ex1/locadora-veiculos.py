@@ -9,6 +9,14 @@ class FormularioClientes:
         self.lista_km_contratados = []
         self.lista_mulheres_acima_sete_dias = []
                     # validacao
+    
+    def validar_nome(self):
+        while True:
+            nome = input("Digite seu nome: ").upper()
+            if len(nome) >= 2 and nome == str:
+                return nome
+            print("Erro: Digite seu nome.")
+
     def validar_sexo(self):
         while True:
             sexo = input("Digite o sexo do cliente (M/F): ").upper()
@@ -16,12 +24,20 @@ class FormularioClientes:
                 return sexo
             print("Erro: Digite apenas 'M' para Masculino ou 'F' para Feminino.")
 
+    def validar_placa(self):
+        while True:
+            placa = input("Digite seu nome: ").upper()
+            if len(placa) == 7:
+                return placa
+            print("Erro: Digite sua placa.")
+
+
     def cadastrar_cliente(self):
         print("=== Cadastro de Cliente ===")
 
-        nome = input("Digite o nome do cliente: ")
+        nome = self.validar_nome()
         sexo = self.validar_sexo()
-        placa = input("Digite a placa do carro do cliente: ")
+        placa = self.validar_placa()
         km_contratados = float(input("Digite a quantidade de km contratados pelos clientes: "))
         dias_contratados = float(input("Digite quantos dias foram contratados pelo cliente: "))
         
